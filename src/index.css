@@ -1,0 +1,7 @@
+.main-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* 100vh: 내가 보는 화면 높이의 100% */
+}
