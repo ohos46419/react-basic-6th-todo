@@ -40,23 +40,18 @@ const TodoList = () => {
   };
 
   const toggleCompleted = (id) => {
-    const updatedTodos = [];
-
-    todos.forEach((todo) => {
+    const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
-        // TODO - 수정
         const newTodo = {
           id: todo.id,
           text: todo.text,
           completed: !todo.completed,
         };
 
-        return updatedTodos.push(newTodo);
+        return newTodo;
       }
-
-      updatedTodos.push(todo);
+      return todo;
     });
-
     setTodos(updatedTodos);
   };
 
