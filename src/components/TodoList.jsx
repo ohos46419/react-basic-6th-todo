@@ -55,6 +55,23 @@ const TodoList = () => {
     setTodos(updatedTodos);
   };
 
+  const handleDelete = (id) => {
+    const filteredTodos = todos.filter((todo) => {
+      if (todo.id === id) {
+        return false;
+      }
+
+      // else를 생략해도 된다 => Early return방식
+      return true;
+    });
+
+    setTodos(filteredTodos);
+  };
+
+  // * 삼항연산자를 이용한 리팩토링
+  // const handleDelete = (id) =>
+  //   setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -70,10 +87,19 @@ const TodoList = () => {
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            <p>
-              {todo.text} - {String(todo.completed)}
+            <p
+              style={{
+                textDecoration: todo.completed ? "line-through" : "none",
+              }}
+            >
+              {todo.text} - {todo.completed ? "완료됨" : "미완료"}
             </p>
-            <button onClick={() => toggleCompleted(todo.id)}>완료</button>
+
+            <button onClick={() => toggleCompleted(todo.id)}>
+              {todo.completed ? "되돌리기" : "완료"}
+            </button>
+
+            <button onClick={() => handleDelete(todo.id)}>삭제</button>
           </li>
         ))}
       </ul>
