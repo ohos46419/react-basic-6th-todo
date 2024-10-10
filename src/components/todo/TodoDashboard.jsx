@@ -1,7 +1,7 @@
 import { ClipboardCheck, Ellipsis, Monitor, Video } from "lucide-react";
 import styled from "styled-components";
 
-const TodoDashboard = () => {
+const TodoDashboard = ({ all = 0, completed = 0, pending = 0 }) => {
   return (
     <section>
       <DashboardSection>
@@ -16,7 +16,7 @@ const TodoDashboard = () => {
               <Ellipsis />
             </div>
             <p>
-              16 <br /> All Task
+              {all} <br /> All Task
             </p>
           </DashboardCard>
 
@@ -26,7 +26,7 @@ const TodoDashboard = () => {
               <Ellipsis />
             </div>
             <p>
-              3 <br /> Completed
+              {completed} <br /> Completed
             </p>
           </DashboardCard>
 
@@ -36,7 +36,7 @@ const TodoDashboard = () => {
               <Ellipsis />
             </div>
             <p>
-              13 <br /> Pending
+              {pending} <br /> Pending
             </p>
           </DashboardCard>
         </DashboardCardList>
