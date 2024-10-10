@@ -69,6 +69,7 @@ const DashboardCardList = styled.div`
 
 const DashboardCard = styled.div`
   background-color: ${(props) => props.color};
+  background-color: ${({ color }) => color};
   padding: 1rem;
   border-radius: 1rem;
   height: calc((640px / 4));
@@ -79,7 +80,7 @@ const DashboardCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: ${(props) => props.flex};
+  flex: ${({ flex }) => flex};
 
   div {
     display: flex;
