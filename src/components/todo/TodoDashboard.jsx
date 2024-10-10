@@ -1,22 +1,43 @@
+import { ClipboardCheck, Ellipsis, Monitor, Video } from "lucide-react";
 import styled from "styled-components";
 
 const TodoDashboard = () => {
   return (
     <section>
       <DashboardSection>
-        <DashboardHeader>Todo Dashboard</DashboardHeader>
+        <DashboardHeader>
+          <h1>Todo Dashboard</h1>
+        </DashboardHeader>
 
         <DashboardCardList>
-          <DashboardCard>
-            16
-            <br /> All Task
+          <DashboardCard flex="2" color="#e7582b">
+            <div>
+              <ClipboardCheck />
+              <Ellipsis />
+            </div>
+            <p>
+              16 <br /> All Task
+            </p>
           </DashboardCard>
-          <DashboardCard>
-            3<br /> Completed
+
+          <DashboardCard flex="1" color="#582be7">
+            <div>
+              <Monitor />
+              <Ellipsis />
+            </div>
+            <p>
+              3 <br /> Completed
+            </p>
           </DashboardCard>
-          <DashboardCard>
-            13
-            <br /> Pending
+
+          <DashboardCard flex="1" color="#242424">
+            <div>
+              <Video />
+              <Ellipsis />
+            </div>
+            <p>
+              13 <br /> Pending
+            </p>
           </DashboardCard>
         </DashboardCardList>
       </DashboardSection>
@@ -29,12 +50,13 @@ export default TodoDashboard;
 const DashboardSection = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 1rem;
 `;
 
 const DashboardHeader = styled.div`
   h1 {
     font-size: 1.5rem;
+    font-weight: bold;
   }
 `;
 
@@ -42,23 +64,26 @@ const DashboardCardList = styled.div`
   display: flex;
   flex-direction: row;
   gap: 8px;
+  width: 100%;
 `;
 
 const DashboardCard = styled.div`
-  background-color: orange;
+  background-color: ${(props) => props.color};
   padding: 1rem;
   border-radius: 1rem;
-  height: 120px;
-  width: 120px;
+  height: calc((640px / 4));
 
   color: white;
   font-weight: bold;
 
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: space-between;
+  flex: ${(props) => props.flex};
 
-  &:first-child {
-    flex-basis: 60%;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
