@@ -1,11 +1,22 @@
+import styled from "styled-components";
+
 const RootLayout = ({ children }) => {
   return (
-    <main className="main-center">
-      <header>나는 완전히 붕괴되었습니다</header>
-      {children}
-      <footer>저는 footer입니다</footer>
-    </main>
+    <RootLayoutMain>
+      <RootLayoutContents>{children}</RootLayoutContents>
+    </RootLayoutMain>
   );
 };
 
 export default RootLayout;
+
+const RootLayoutMain = styled.main`
+  background-color: #f7f6f9;
+  min-height: 100vh;
+`;
+
+const RootLayoutContents = styled.div`
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 768px;
+`;
