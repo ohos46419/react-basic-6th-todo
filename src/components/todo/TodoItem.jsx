@@ -54,7 +54,7 @@ const TaskItemActions = styled.div`
   justify-content: center;
 `;
 
-const TaskItemActionButton = styled.button`
+export const TaskItemActionButton = styled.button`
   color: #fff;
   background-color: ${({ color }) => color};
 
